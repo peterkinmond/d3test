@@ -7,7 +7,7 @@
     <style type="text/css">
 
 body {
-  font: 10px sans-serif;
+  font: 20px sans-serif;
 }
 
 .pie-piece {
@@ -17,12 +17,16 @@ body {
     </style>
   </head>
   <body>
+    <input type="checkbox" name="something_good" value="good" onclick="rotateChart(90);">Something good</input>
     <script type="text/javascript">
+var rotateChart = function(rotateAngle) {   
+  d3.select("body").selectAll("g.arc").attr("transform", "translate(200,200)rotate(" + rotateAngle +")");
+};
 
 var w = 400,
     h = 400,
     r = Math.min(w, h) / 2,
-    moodDegrees = 180,
+    moodDegrees = 0,
     text = ['elated', 'happy', 'so-so', 'angry', 'nuclear'],
     data = d3.range(text.length).map(function() { return 1/text.length; }),
     colours = ['#2ca02c', '#98df8a', "#ff7f0e", '#ff9896',"#d62728"],
@@ -53,7 +57,7 @@ arcs.append("text")
     .attr("display", function(d) { return null; })
     .attr("class", "pie-piece")
     .text(function(d, i) { return text[i]; });
-
+        
     </script>
   </body>
 </html>
