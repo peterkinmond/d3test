@@ -24,8 +24,8 @@ var w = 400,
     r = Math.min(w, h) / 2,
     text = ['elated', 'happy', 'so-so', 'angry', 'nuclear'],
     data = d3.range(text.length).map(function() { return 1/text.length; }),
-    colors = ['#2ca02c', '#98df8a', "#ff7f0e", '#ff9896',"#d62728"],
-    color = d3.scale.ordinal().range(colors),
+    colours = ['#2ca02c', '#98df8a', "#ff7f0e", '#ff9896',"#d62728"],
+    colour = d3.scale.ordinal().range(colours),
     donut = d3.layout.pie(),
     arc = d3.svg.arc().innerRadius(r * .5).outerRadius(r);
 
@@ -42,7 +42,7 @@ var arcs = vis.selectAll("g.arc")
     .attr("transform", "translate(" + r + "," + r + ")");
 
 arcs.append("path")
-    .attr("fill", function(d, i) { return color(i); })
+    .attr("fill", function(d, i) { return colour(i); })
     .attr("d", arc);
 
 arcs.append("text")
