@@ -18,7 +18,8 @@ body {
 var w = 400,
     h = 400,
     r = Math.min(w, h) / 2,
-    data = ['happy', 'so-so', 'sad'],
+    text = ['happy', 'so-so', 'angry', 'sad', 'emotional'],
+    data = d3.range(text.length).map(function() { return 1/text.length; }),
     color = d3.scale.category20(),
     donut = d3.layout.pie(),
     arc = d3.svg.arc().innerRadius(r * .6).outerRadius(r);
@@ -43,8 +44,8 @@ arcs.append("text")
     .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
     .attr("dy", ".35em")
     .attr("text-anchor", "middle")
-    .attr("display", function(d) { return d.value; })
-    .text(function(d, i) { return d.value; });
+    .attr("display", function(d) { return null; })
+    .text(function(d, i) { return text[i]; });
 
     </script>
   </body>
