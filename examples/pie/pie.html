@@ -22,9 +22,10 @@ body {
 var w = 400,
     h = 400,
     r = Math.min(w, h) / 2,
-    text = ['happy', 'so-so', 'angry', 'sad', 'emotional'],
+    text = ['elated', 'happy', 'so-so', 'angry', 'nuclear'],
     data = d3.range(text.length).map(function() { return 1/text.length; }),
-    color = d3.scale.category20(),
+    colors = ['#2ca02c', '#98df8a', "#ff7f0e", '#ff9896',"#d62728"],
+    color = d3.scale.ordinal().range(colors),
     donut = d3.layout.pie(),
     arc = d3.svg.arc().innerRadius(r * .5).outerRadius(r);
 
