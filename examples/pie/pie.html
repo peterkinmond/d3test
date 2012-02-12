@@ -10,6 +10,10 @@ body {
   font: 10px sans-serif;
 }
 
+.pie-piece {
+  font: 20px sans-serif;
+}
+
     </style>
   </head>
   <body>
@@ -22,7 +26,7 @@ var w = 400,
     data = d3.range(text.length).map(function() { return 1/text.length; }),
     color = d3.scale.category20(),
     donut = d3.layout.pie(),
-    arc = d3.svg.arc().innerRadius(r * .6).outerRadius(r);
+    arc = d3.svg.arc().innerRadius(r * .5).outerRadius(r);
 
 var vis = d3.select("body")
   .append("svg")
@@ -45,6 +49,7 @@ arcs.append("text")
     .attr("dy", ".35em")
     .attr("text-anchor", "middle")
     .attr("display", function(d) { return null; })
+    .attr("class", "pie-piece")
     .text(function(d, i) { return text[i]; });
 
     </script>
